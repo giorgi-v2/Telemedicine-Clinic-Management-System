@@ -1,0 +1,60 @@
+@use '../styles/tokens' as t;
+
+// ჩანაწერის ბარათი: ტექსტის განლაგება და მსუბუქი hover.
+.recordCard {
+  transition:
+    border-color t.$transition,
+    box-shadow t.$transition;
+
+  @include t.hover-capable {
+    &:hover {
+      border-color: t.$brand-200;
+      box-shadow: 0 8px 22px rgba(t.$ink, 0.07);
+    }
+  }
+
+  @include t.reduced-motion {
+    transition: none;
+  }
+}
+
+// notes: გრძელი ტექსტი გადატყდეს, ახალი ხაზები შენარჩუნდეს.
+.notes {
+  color: t.$muted;
+  line-height: 1.65;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+// დანიშნულებების სია: ელემენტებს შორის თხელი გამყოფი.
+.prescriptionList {
+  padding: 0;
+  list-style: none;
+}
+
+.prescriptionItem {
+  padding-block: 0.25rem;
+
+  & + & {
+    margin-top: 0.75rem;
+  }
+}
+
+.wrapText {
+  overflow-wrap: anywhere;
+}
+
+// ბეჯი-ღილაკი ("2 დანიშნულება"): არჩევანის გადამრთველი, ვიზუალურად ჩვეულებრივი ბეჯი.
+.countBadge {
+  transition: background-color t.$transition;
+
+  @include t.hover-capable {
+    &:hover {
+      background-color: t.$brand-200;
+    }
+  }
+
+  @include t.reduced-motion {
+    transition: none;
+  }
+}
