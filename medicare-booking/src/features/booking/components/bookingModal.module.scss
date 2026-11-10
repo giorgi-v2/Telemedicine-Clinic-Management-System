@@ -1,0 +1,55 @@
+
+$primary: #087fbd;
+$border: #dce7ef;
+$text: #19354a;
+
+.bookingCard {
+  box-shadow: 0 10px 35px rgba(30, 58, 80, 0.04);
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: #e8f6ff;
+  color: $primary;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.closeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid $border;
+  border-radius: 8px;
+  background: white;
+  color: $primary;
+  font-size: 20px;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: #e8f6ff;
+  }
+
+  &:focus-visible {
+    outline: 3px solid $primary;
+    outline-offset: 3px;
+  }
+}
+
+.placeholder {
+  margin-top: 32px;
+  padding: 40px 20px;
+  border: 1px dashed $border;
+  border-radius: 12px;
+  text-align: center;
+  color: $text;
+  background: #f7fbfe;
+}
