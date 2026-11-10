@@ -1,0 +1,111 @@
+
+$primary: #087fbd;
+$border: #dce7ef;
+$text: #19354a;
+
+.calendar {
+  width: 100%;
+  margin-top: 16px;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+
+  strong {
+    color: $primary;
+    font-size: 15px;
+  }
+}
+
+.navigation {
+  display: flex;
+  gap: 8px;
+
+  button {
+    width: 32px;
+    height: 32px;
+    border: 1px solid $border;
+    border-radius: 7px;
+    background: white;
+    color: $primary;
+    font-size: 22px;
+
+    &:hover:not(:disabled) {
+      background: #e8f6ff;
+    }
+
+    &:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.weekdays,
+.days {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.weekdays {
+  margin-bottom: 10px;
+
+  span {
+    text-align: center;
+    color: #7891a1;
+    font-size: 12px;
+  }
+}
+
+.day {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 1;
+  border: 1px solid $border;
+  border-radius: 8px;
+  background: white;
+  color: $text;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s ease;
+
+  &:hover:not(:disabled) {
+    background: #e8f6ff;
+  }
+
+  &:focus-visible {
+    outline: 3px solid $primary;
+    outline-offset: 2px;
+  }
+}
+
+.selected {
+  background: $primary;
+  border-color: $primary;
+  color: white;
+
+  &:hover:not(:disabled) {
+    background: #076da3;
+  }
+}
+
+.disabled {
+  background: #e4edf3;
+  color: #9aadb9;
+  cursor: not-allowed;
+}
+
+.legend {
+  margin-top: 15px;
+  color: #7891a1;
+  font-size: 12px;
+}
