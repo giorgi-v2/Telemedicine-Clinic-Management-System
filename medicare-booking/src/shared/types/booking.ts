@@ -6,3 +6,10 @@ export interface AppointmentSlot {
   time: string;
   isAvailable: boolean;
 }
+
+
+export interface BookingFormValues {
+  date: string;
+  slotId: string;
+  comment: string;
+}
