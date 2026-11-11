@@ -1,0 +1,66 @@
+
+$primary: #087fbd;
+$border: #dce7ef;
+$text: #19354a;
+
+.timeGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+}
+
+.timeSlot {
+  min-width: 0;
+  min-height: 48px;
+  border: 1px solid $border;
+  border-radius: 9px;
+  background: white;
+  color: $text;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+
+  &:hover:not(:disabled):not(.selected) {
+    background: #e8f6ff;
+    border-color: $primary;
+  }
+
+  &:focus-visible {
+    outline: 3px solid $primary;
+    outline-offset: 2px;
+  }
+}
+
+.selected {
+  background: $primary;
+  border-color: $primary;
+  color: white;
+}
+
+.booked {
+  background: #edf2f6;
+  color: #9aadb9;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 20px;
+  color: #7891a1;
+  font-size: 12px;
+}
+
+@media (max-width: 480px) {
+  .timeGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+}

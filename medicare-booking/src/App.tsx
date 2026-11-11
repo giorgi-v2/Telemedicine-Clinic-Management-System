@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import BookingModal from './features/booking/components/bookingModal';
+import BookingModal from './features/booking/components/BookingModal';
 import type { Doctor } from './shared/types/doctor';
 
 const demoDoctor: Doctor = {
