@@ -2,9 +2,17 @@
 @import "tailwindcss";
 
 :root {
-  font-family: Arial, sans-serif;
-  color: #1e3a50;
+  font-family: "Noto Sans Georgian", Arial, sans-serif;
+  color: #19354a;
   background: #f3f8fc;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
@@ -15,6 +23,20 @@ body {
 
 button,
 input,
-textarea {
+textarea,
+select {
   font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+:focus-visible {
+  outline: 3px solid #087fbd;
+  outline-offset: 3px;
 }
