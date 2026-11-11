@@ -1,5 +1,5 @@
 
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import {
   fromDateKey,
   isPastDate,
@@ -29,12 +29,7 @@ export default function Calendar({
     );
   });
 
-  useEffect(() => {
-    const date = fromDateKey(value);
-    setVisibleMonth(
-      new Date(date.getFullYear(), date.getMonth(), 1)
-    );
-  }, [value]);
+  
 
   const days = useMemo(() => {
     const year = visibleMonth.getFullYear();

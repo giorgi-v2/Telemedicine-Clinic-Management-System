@@ -68,10 +68,13 @@ export default function BookingForm({
             </p>
           )}
 
-          <Calendar
+          
+            <Calendar
+            key={formik.values.date.slice(0, 7)}
             value={formik.values.date}
             onChange={onDateChange}
-          />
+            />
+
         </section>
 
         <section>
