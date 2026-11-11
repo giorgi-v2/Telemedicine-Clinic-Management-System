@@ -157,9 +157,9 @@ export default function BookingForm({
         disabled={formik.isSubmitting || loading || Boolean(error)}
         className="mt-6 w-full rounded-xl bg-sky-600 px-6 py-4 font-semibold text-white transition-colors hover:bg-sky-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600 disabled:cursor-not-allowed disabled:opacity-50"
       >
-        {formik.isSubmitting
-          ? 'მონაცემები მოწმდება...'
-          : 'ჯავშნის მონაცემების შემოწმება'}
+            {formik.isSubmitting
+            ? 'ჯავშანი მუშავდება...'
+            : 'ჯავშნის დადასტურება'}
       </button>
 
       {status && (

@@ -1,19 +1,26 @@
 
+import type { Booking } from '../../../shared/types/booking';
 import type { Doctor } from '../../../shared/types/doctor';
 
 import { useBookingForm } from '../hooks/useBookingForm';
+
 import BookingForm from './BookingForm';
+import BookingSuccess from './BookingSuccess';
 
 import styles from './BookingModal.module.scss';
 
 interface BookingModalProps {
   doctor: Doctor;
+  patientId: string;
   onClose: () => void;
+  onBooked: (booking: Booking) => void;
 }
 
 export default function BookingModal({
   doctor,
+  patientId,
   onClose,
+  onBooked,
 }: BookingModalProps) {
   const {
     formik,
@@ -22,7 +29,24 @@ export default function BookingModal({
     error,
     changeDate,
     retry,
-  } = useBookingForm(doctor.doctorId);
+    successBooking,
+    resetBooking,
+  } = useBookingForm({
+    doctorId: doctor.doctorId,
+    patientId,
+    onBooked,
+  });
+
+  if (successBooking) {
+    return (
+      <BookingSuccess
+        booking={successBooking}
+        doctor={doctor}
+        onNewBooking={resetBooking}
+        onClose={onClose}
+      />
+    );
+  }
 
   return (
     <main className="mx-auto w-full max-w-5xl px-4 py-10 sm:px-6 sm:py-12">
@@ -68,6 +92,7 @@ export default function BookingModal({
             type="button"
             className={styles.closeButton}
             onClick={onClose}
+            disabled={formik.isSubmitting}
             aria-label="ჯავშნის დახურვა"
           >
             ×
