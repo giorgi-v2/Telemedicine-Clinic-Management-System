@@ -13,3 +13,24 @@ export interface BookingFormValues {
   slotId: string;
   comment: string;
 }
+
+
+
+export interface Booking {
+  id: string;
+  doctorId: string;
+  patientId: string;
+  slotId: string;
+  date: string;
+  time: string;
+  comment: string;
+  status: 'confirmed' | 'cancelled';
+}
+
+export interface CreateBookingInput {
+  doctorId: string;
+  patientId: string;
+  slotId: string;
+  date: string;
+  comment: string;
+}
