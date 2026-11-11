@@ -1,55 +1,81 @@
 
 $primary: #087fbd;
+$primary-hover: #066da5;
 $border: #dce7ef;
 $text: #19354a;
 
 .bookingCard {
-  box-shadow: 0 10px 35px rgba(30, 58, 80, 0.04);
+  background: #ffffff;
+  border: 1px solid $border;
+  border-radius: 20px;
+
+  box-shadow: 0 10px 35px rgba(25, 53, 74, 0.04);
 }
 
 .avatar {
   display: flex;
   align-items: center;
   justify-content: center;
+
+  width: 56px;
+  height: 56px;
   flex-shrink: 0;
-  width: 58px;
-  height: 58px;
+
   border-radius: 50%;
   background: #e8f6ff;
   color: $primary;
-  font-weight: 700;
+
   font-size: 18px;
+  font-weight: 700;
 }
 
 .closeButton {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 42px;
-  height: 42px;
+
   border: 1px solid $border;
   border-radius: 8px;
-  background: white;
-  color: $primary;
-  font-size: 20px;
-  transition: background 0.2s ease;
 
-  &:hover {
+  background: #ffffff;
+  color: $primary;
+
+  font-size: 20px;
+  transition: all 0.2s ease;
+
+  &:hover:not(:disabled) {
     background: #e8f6ff;
+    border-color: $primary;
   }
 
   &:focus-visible {
     outline: 3px solid $primary;
     outline-offset: 3px;
   }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 }
 
-.placeholder {
-  margin-top: 32px;
-  padding: 40px 20px;
-  border: 1px dashed $border;
-  border-radius: 12px;
-  text-align: center;
-  color: $text;
-  background: #f7fbfe;
+@media (max-width: 640px) {
+  .bookingCard {
+    border-radius: 16px;
+  }
+
+  .avatar {
+    width: 50px;
+    height: 50px;
+    font-size: 16px;
+  }
+
+  .closeButton {
+    width: 38px;
+    height: 38px;
+  }
 }

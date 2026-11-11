@@ -13,11 +13,12 @@ $text: #19354a;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 
   strong {
     color: $primary;
-    font-size: 15px;
+    font-size: 14px;
+    font-weight: 700;
   }
 }
 
@@ -26,13 +27,19 @@ $text: #19354a;
   gap: 8px;
 
   button {
-    width: 32px;
-    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 34px;
+    height: 34px;
+
     border: 1px solid $border;
-    border-radius: 7px;
+    border-radius: 8px;
     background: white;
+
     color: $primary;
-    font-size: 22px;
+    font-size: 20px;
 
     &:hover:not(:disabled) {
       background: #e8f6ff;
@@ -42,6 +49,11 @@ $text: #19354a;
       opacity: 0.35;
       cursor: not-allowed;
     }
+
+    &:focus-visible {
+      outline: 3px solid $primary;
+      outline-offset: 2px;
+    }
   }
 }
 
@@ -49,7 +61,7 @@ $text: #19354a;
 .days {
   display: grid;
   grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: 6px;
+  gap: 5px;
 }
 
 .weekdays {
@@ -58,7 +70,7 @@ $text: #19354a;
   span {
     text-align: center;
     color: #7891a1;
-    font-size: 12px;
+    font-size: 11px;
   }
 }
 
@@ -66,20 +78,27 @@ $text: #19354a;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+
   min-width: 0;
+  width: 100%;
   aspect-ratio: 1;
+
   border: 1px solid $border;
-  border-radius: 8px;
-  background: white;
+  border-radius: 7px;
+
+  background: #ffffff;
   color: $text;
-  font-size: 13px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.15s ease;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
 
   &:hover:not(:disabled) {
     background: #e8f6ff;
+    border-color: $primary;
   }
 
   &:focus-visible {
@@ -94,18 +113,30 @@ $text: #19354a;
   color: white;
 
   &:hover:not(:disabled) {
-    background: #076da3;
+    background: #066da5;
   }
 }
 
 .disabled {
   background: #e4edf3;
-  color: #9aadb9;
+  color: #91a9b9;
   cursor: not-allowed;
 }
 
 .legend {
-  margin-top: 15px;
+  margin-top: 14px;
   color: #7891a1;
-  font-size: 12px;
+  font-size: 11px;
+}
+
+@media (max-width: 480px) {
+  .weekdays,
+  .days {
+    gap: 4px;
+  }
+
+  .day {
+    font-size: 11px;
+    border-radius: 6px;
+  }
 }
