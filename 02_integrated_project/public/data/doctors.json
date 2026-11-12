@@ -1,0 +1,38 @@
+[
+  {
+    "id": "1",
+    "fullName": "დოქტორი ნინო ბერიძე",
+    "specialty": "კარდიოლოგი",
+    "photoUrl": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=300"
+  },
+  {
+    "id": "2",
+    "fullName": "დოქტორი გიორგი მაისურაძე",
+    "specialty": "ნევროლოგი",
+    "photoUrl": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=300"
+  },
+  {
+    "id": "3",
+    "fullName": "დოქტორი თამარ ლომიძე",
+    "specialty": "პედიატრი",
+    "photoUrl": "https://images.unsplash.com/photo-1594824813576-2e864c8511a3?auto=format&fit=crop&q=80&w=300"
+  },
+  {
+    "id": "4",
+    "fullName": "დოქტორი დავით ქავთარაძე",
+    "specialty": "კარდიოლოგი",
+    "photoUrl": "https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&q=80&w=300"
+  },
+  {
+    "id": "5",
+    "fullName": "დოქტორი ანა მგელაძე",
+    "specialty": "დერმატოლოგი",
+    "photoUrl": "https://images.unsplash.com/photo-1527613426441-2da17477ef66?auto=format&fit=crop&q=80&w=300"
+  },
+  {
+    "id": "6",
+    "fullName": "დოქტორი ლევან წერეთელი",
+    "specialty": "ნევროლოგი",
+    "photoUrl": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=300"
+  }
+]
