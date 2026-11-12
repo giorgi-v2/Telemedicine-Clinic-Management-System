@@ -55,7 +55,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#f3f8fc] text-[#19354a]">
       <header className="border-b border-[#e3edf4] bg-white">
-        <div className="mx-auto flex min-h-[78px] max-w-6xl items-center justify-between gap-4 px-5 sm:px-8">
+        <div className="mx-auto flex min-h-19.5 max-w-6xl items-center justify-between gap-4 px-5 sm:px-8">
           {/* ლოგო */}
           <button
             type="button"

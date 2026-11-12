@@ -50,7 +50,7 @@ export default function BookingModal({
 
   return (
 
-<main className="mx-auto w-full max-w-[1010px] px-4 pb-16 pt-10 sm:px-6 sm:pt-12">
+<main className="mx-auto w-full max-w-252.5 px-4 pb-16 pt-10 sm:px-6 sm:pt-12">
       <div className="mb-6">
         <h1 className="text-3xl font-bold text-[#19354a]">
           ვიზიტის დაჯავშნა
