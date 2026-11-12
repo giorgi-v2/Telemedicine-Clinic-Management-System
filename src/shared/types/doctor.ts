@@ -1,8 +1,2 @@
-// დროებითი ტიპი: ექიმების დირექტორია ელენეს მოდულია.
-// აქ მხოლოდ ის ველებია, რაც პაციენტის ბარათს ექიმის სახელის საჩვენებლად სჭირდება.
-// მერჯისას ელენეს Doctor ტიპით ჩაანაცვლეთ (ველების სახელები შეათანხმეთ).
-export interface Doctor {
-  id: string
-  fullName: string
-  specialty: string
-}
+
+export interface Doctor{id:string;fullName:string;specialty:string}

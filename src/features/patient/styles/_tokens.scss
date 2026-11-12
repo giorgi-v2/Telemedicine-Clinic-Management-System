@@ -1,21 +1,11 @@
-// SCSS ცვლადები და mixin-ები (Tailwind-ის ტოკენებთან შეთანხმებული მნიშვნელობები).
-// Tailwind დირექტივები და @apply აქ არ გამოიყენება.
-$brand-600: #0580bd;
-$brand-200: #b9dcf1;
-$ink: #16324a;
-$muted: #5b6d80;
-$line: #dbe6ee;
-$radius-card: 16px;
-$transition: 160ms ease;
 
-@mixin reduced-motion {
-  @media (prefers-reduced-motion: reduce) {
-    @content;
-  }
-}
+$brand-600:#0580bd;
+$brand-200:#b9dcf1;
+$ink:#16324a;
+$muted:#5b6d80;
+$line:#dbe6ee;
+$radius-card:16px;
+$transition:160ms ease;
 
-@mixin hover-capable {
-  @media (hover: hover) {
-    @content;
-  }
-}
+@mixin reduced-motion{@media(prefers-reduced-motion:reduce){@content}}
+@mixin hover-capable{@media(hover:hover){@content}}

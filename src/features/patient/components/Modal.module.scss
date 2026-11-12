@@ -1,45 +1,17 @@
+
 @use '../styles/tokens' as t;
 
-// მშობლიური <dialog>: focus trap, Esc და ფონის inert ბრაუზერს ეკისრება.
-.dialog {
-  width: min(40rem, calc(100% - 2rem));
-  max-height: calc(100dvh - 2rem);
-  margin: clamp(1rem, 9vh, 5rem) auto auto;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  color: inherit;
-  overflow: visible;
-
-  &::backdrop {
-    background: rgba(245, 249, 252, 0.88);
-    backdrop-filter: blur(2px);
-  }
-
-  &[open] {
-    animation: dialog-in 160ms ease-out;
-  }
-
-  @include t.reduced-motion {
-    &[open] {
-      animation: none;
-    }
-  }
+.dialog{
+width:min(40rem,calc(100% - 2rem));
+max-height:calc(100dvh - 2rem);
+margin:clamp(1rem,9vh,5rem) auto auto;
+padding:0;border:0;background:transparent;color:inherit;overflow:visible;
+&::backdrop{background:rgba(245,249,252,.88);backdrop-filter:blur(2px)}
+&[open]{animation:dialog-in 160ms ease-out}
+@include t.reduced-motion{&[open]{animation:none}}
 }
-
-.panel {
-  max-height: calc(100dvh - 2rem);
-  overflow-y: auto;
-  box-shadow: 0 18px 48px rgba(t.$ink, 0.12);
-}
-
-@keyframes dialog-in {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
+.panel{max-height:calc(100dvh - 2rem);overflow-y:auto;box-shadow:0 18px 48px rgba(t.$ink,.12)}
+@keyframes dialog-in{
+from{opacity:0;transform:translateY(6px)}
+to{opacity:1;transform:none}
 }
