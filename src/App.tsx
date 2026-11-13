@@ -14,6 +14,9 @@ import { getDoctors } from './features/doctors/api/doctors.api';
 
 import type { Doctor } from './shared/types/doctor';
 import type { Booking } from './shared/types/booking';
+import { useAppDispatch } from './app/hooks';
+import { bookingAdded, fetchBookings } from './app/bookingsSlice';
+import { PatientDashboard } from './features/patient/components/PatientDashboard';
 
 const patientId = 'patient-demo-001';
 
@@ -26,6 +29,8 @@ function loadPatientBookings(): Booking[] {
 }
 
 export default function App() {
+  const dispatch = useAppDispatch();
+  useEffect(() => { void dispatch(fetchBookings()); }, [dispatch]);
   const [page, setPage] = useState<Page>('doctors');
 
   const [selectedDoctor, setSelectedDoctor] =
@@ -55,6 +60,7 @@ export default function App() {
   };
 
   const handleBooked = useCallback((booking: Booking) => {
+    dispatch(bookingAdded(booking));
     setBookings((previous) => {
       if (previous.some((item) => item.id === booking.id)) {
         return previous;
@@ -62,7 +68,7 @@ export default function App() {
 
       return [booking, ...previous];
     });
-  }, []);
+  }, [dispatch]);
 
   const handleNavigate = (nextPage: Page) => {
     setSelectedDoctor(null);
@@ -133,49 +139,7 @@ export default function App() {
       )}
 
       {page === 'patient' && (
-        <section className="mx-auto max-w-3xl rounded-2xl border border-line bg-white p-6 sm:p-8">
-          <h1 className="text-2xl font-bold text-ink">
-            პაციენტის ბარათი
-          </h1>
-
-          <div className="mt-6 flex items-center gap-4">
-            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-hero font-bold text-primary">
-              პ
-            </div>
-
-            <div>
-              <h2 className="font-semibold text-ink">
-                დემო პაციენტი
-              </h2>
-              <p className="text-sm text-muted">
-                სატესტო პროფილი
-              </p>
-            </div>
-          </div>
-
-          <div className="mt-6 rounded-xl bg-page p-5">
-            <p className="text-sm text-muted">
-              დადასტურებული ვიზიტები
-            </p>
-
-            <strong className="mt-2 block text-2xl text-primary">
-              {bookings.length}
-            </strong>
-          </div>
-
-          <p className="mt-5 text-sm text-muted">
-            სამედიცინო ისტორიის სრული მოდული დაემატება
-            სტუდენტი 3-ის კოდის ინტეგრაციისას.
-          </p>
-
-          <button
-            type="button"
-            onClick={() => handleNavigate('appointments')}
-            className="mt-6 rounded-lg bg-primary px-6 py-3 font-semibold text-white"
-          >
-            ჩემი ვიზიტების ნახვა
-          </button>
-        </section>
+        <PatientDashboard patientId={patientId} onBrowseDoctors={() => handleNavigate('doctors')} />
       )}
 
       {selectedDoctor && (

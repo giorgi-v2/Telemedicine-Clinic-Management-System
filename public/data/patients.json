@@ -1,0 +1,5 @@
+[
+  { "id": "patient-demo-001", "fullName": "გიორგი ბერიძე", "birthDate": "1995-05-12" },
+  { "id": "PAT-002", "fullName": "მარიამ ჯავახიშვილი", "birthDate": "1988-09-03" },
+  { "id": "PAT-003", "fullName": "ლუკა მამულაშვილი", "birthDate": "2001-02-21" }
+]
