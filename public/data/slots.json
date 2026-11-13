@@ -1,0 +1,77 @@
+
+{
+  "schedules": [
+    {
+      "doctorId": "d1",
+      "weekdays": [1, 2, 3, 4, 5],
+      "slots": [
+        { "time": "09:00", "isAvailable": true },
+        { "time": "10:00", "isAvailable": true },
+        { "time": "11:00", "isAvailable": false },
+        { "time": "12:00", "isAvailable": true },
+        { "time": "14:00", "isAvailable": true },
+        { "time": "15:00", "isAvailable": false }
+      ]
+    },
+    {
+      "doctorId": "d2",
+      "weekdays": [1, 2, 3, 4, 5],
+      "slots": [
+        { "time": "09:00", "isAvailable": true },
+        { "time": "10:00", "isAvailable": true },
+        { "time": "11:00", "isAvailable": false },
+        { "time": "12:00", "isAvailable": true },
+        { "time": "14:00", "isAvailable": true },
+        { "time": "15:00", "isAvailable": false }
+      ]
+    },
+    {
+      "doctorId": "d3",
+      "weekdays": [1, 2, 3, 4, 5],
+      "slots": [
+        { "time": "09:00", "isAvailable": true },
+        { "time": "10:00", "isAvailable": true },
+        { "time": "11:00", "isAvailable": false },
+        { "time": "12:00", "isAvailable": true },
+        { "time": "14:00", "isAvailable": true },
+        { "time": "15:00", "isAvailable": false }
+      ]
+    },
+    {
+      "doctorId": "d4",
+      "weekdays": [1, 2, 3, 4, 5],
+      "slots": [
+        { "time": "09:00", "isAvailable": true },
+        { "time": "10:00", "isAvailable": true },
+        { "time": "11:00", "isAvailable": false },
+        { "time": "12:00", "isAvailable": true },
+        { "time": "14:00", "isAvailable": true },
+        { "time": "15:00", "isAvailable": false }
+      ]
+    },
+    {
+      "doctorId": "d5",
+      "weekdays": [1, 2, 3, 4, 5],
+      "slots": [
+        { "time": "09:00", "isAvailable": true },
+        { "time": "10:00", "isAvailable": true },
+        { "time": "11:00", "isAvailable": false },
+        { "time": "12:00", "isAvailable": true },
+        { "time": "14:00", "isAvailable": true },
+        { "time": "15:00", "isAvailable": false }
+      ]
+    },
+    {
+      "doctorId": "d6",
+      "weekdays": [1, 2, 3, 4, 5],
+      "slots": [
+        { "time": "09:00", "isAvailable": true },
+        { "time": "10:00", "isAvailable": true },
+        { "time": "11:00", "isAvailable": false },
+        { "time": "12:00", "isAvailable": true },
+        { "time": "14:00", "isAvailable": true },
+        { "time": "15:00", "isAvailable": false }
+      ]
+    }
+  ]
+}
