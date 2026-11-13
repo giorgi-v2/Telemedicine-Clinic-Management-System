@@ -1,0 +1,20 @@
+$primary: #0a7bbf;
+
+@mixin interactive-card {
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 8px 24px rgba($primary, 0.14);
+    transform: translateY(-2px);
+  }
+
+  &:focus-within {
+    box-shadow: 0 0 0 2px $primary;
+  }
+}
+
+.card {
+  @include interactive-card;
+}
