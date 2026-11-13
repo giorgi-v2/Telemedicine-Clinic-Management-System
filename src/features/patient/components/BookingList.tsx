@@ -1,5 +1,5 @@
 
-import type {Booking,BookingStatus} from '../../../shared/types/booking';
+import type {Booking,BookingStatus} from '../types/booking';
 import type {BookingsStatus} from '../../../app/bookingsSlice';
 import {formatDayMonth} from '../utils/date';
 import {Button} from './Button';

@@ -1,9 +1,9 @@
 [
-  { "id": "rx-001", "recordId": "rec-001", "patientId": "PAT-001", "medication": "პრეპარატი A", "instructions": "სატესტო მიღების ინსტრუქცია" },
-  { "id": "rx-002", "recordId": "rec-001", "patientId": "PAT-001", "medication": "პრეპარატი B", "instructions": "ინსტრუქცია ექიმის ჩანაწერის მიხედვით" },
-  { "id": "rx-003", "recordId": "rec-002", "patientId": "PAT-001", "medication": "პრეპარატი D", "instructions": "დილით, საჭმლის შემდეგ" },
-  { "id": "rx-004", "recordId": "rec-002", "patientId": "PAT-001", "medication": "პრეპარატი E", "instructions": "საღამოს, საჭიროების შემთხვევაში" },
-  { "id": "rx-005", "recordId": "rec-003", "patientId": "PAT-001", "medication": "პრეპარატი F", "instructions": "დღეში ერთხელ, 7 დღის განმავლობაში" },
-  { "id": "rx-006", "recordId": "rec-003", "patientId": "PAT-001", "medication": "პრეპარატი G", "instructions": "ექიმის ჩანაწერის მიხედვით" },
+  { "id": "rx-001", "recordId": "rec-001", "patientId": "patient-demo-001", "medication": "პრეპარატი A", "instructions": "სატესტო მიღების ინსტრუქცია" },
+  { "id": "rx-002", "recordId": "rec-001", "patientId": "patient-demo-001", "medication": "პრეპარატი B", "instructions": "ინსტრუქცია ექიმის ჩანაწერის მიხედვით" },
+  { "id": "rx-003", "recordId": "rec-002", "patientId": "patient-demo-001", "medication": "პრეპარატი D", "instructions": "დილით, საჭმლის შემდეგ" },
+  { "id": "rx-004", "recordId": "rec-002", "patientId": "patient-demo-001", "medication": "პრეპარატი E", "instructions": "საღამოს, საჭიროების შემთხვევაში" },
+  { "id": "rx-005", "recordId": "rec-003", "patientId": "patient-demo-001", "medication": "პრეპარატი F", "instructions": "დღეში ერთხელ, 7 დღის განმავლობაში" },
+  { "id": "rx-006", "recordId": "rec-003", "patientId": "patient-demo-001", "medication": "პრეპარატი G", "instructions": "ექიმის ჩანაწერის მიხედვით" },
   { "id": "rx-101", "recordId": "rec-102", "patientId": "PAT-002", "medication": "პრეპარატი H", "instructions": "ორჯერ დღეში, საჭმელთან ერთად" }
 ]

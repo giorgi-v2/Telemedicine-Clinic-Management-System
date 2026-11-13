@@ -1,5 +1,5 @@
 
-import type {Doctor} from '../../../shared/types/doctor';
+import type {Doctor} from '../types/doctor';
 import type {MedicalRecord,Prescription} from '../../../shared/types/medicalRecord';
 import type {Patient} from '../../../shared/types/patient';
 import {isValidIsoDate} from '../utils/date';
@@ -40,5 +40,5 @@ return(await fetchList('prescriptions.json',signal,isPrescription)).filter(x=>x.
 }
 
 export function getDoctors(signal:AbortSignal):Promise<Doctor[]>{
-return fetchList('doctors.json',signal,isDoctor);
+return fetchList('patientDoctors.json',signal,isDoctor);
 }

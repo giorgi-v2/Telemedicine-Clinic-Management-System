@@ -1,7 +1,7 @@
 
 import {createSlice,nanoid} from '@reduxjs/toolkit';
 import type {PayloadAction} from '@reduxjs/toolkit';
-import type {Doctor} from '../../../shared/types/doctor';
+import type {Doctor} from '../types/doctor';
 import type {MedicalRecord,MedicalRecordChanges,NewRecordInput,Prescription,PrescriptionChanges} from '../../../shared/types/medicalRecord';
 import type {Patient} from '../../../shared/types/patient';
 import {todayIso} from '../utils/date';

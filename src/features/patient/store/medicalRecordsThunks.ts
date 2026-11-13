@@ -1,6 +1,6 @@
 
 import {createAsyncThunk} from '@reduxjs/toolkit';
-import type {Doctor} from '../../../shared/types/doctor';
+import type {Doctor} from '../types/doctor';
 import type {MedicalRecord,Prescription} from '../../../shared/types/medicalRecord';
 import type {Patient} from '../../../shared/types/patient';
 import {getDoctors,getMedicalRecords,getPatient,getPrescriptions} from '../api/medicalRecords.api';

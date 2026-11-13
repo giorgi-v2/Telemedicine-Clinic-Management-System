@@ -1,8 +1,8 @@
 
 import { createAsyncThunk, createSelector, createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
-import type { Booking } from '../shared/types/booking';
-import { getBookings } from './booking.api';
+import type { Booking } from '../features/patient/types/booking';
+import { getBookings } from '../features/booking/api/booking.api';
 
 export type BookingsStatus='idle'|'pending'|'succeeded'|'failed';
 export interface BookingsState{items:Booking[];status:BookingsStatus;error:string|null}
