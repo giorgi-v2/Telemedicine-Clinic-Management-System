@@ -1,1 +1,0 @@
-# Telemedicine-Clinic-Management-System
