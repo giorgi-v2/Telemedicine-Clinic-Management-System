@@ -1,0 +1,26 @@
+
+@import "tailwindcss";
+
+@theme{
+--font-sans:'Noto Sans Georgian Variable','Noto Sans Georgian',system-ui,-apple-system,'Segoe UI',sans-serif;
+--color-brand-50:#eaf5fd;
+--color-brand-100:#d9edf9;
+--color-brand-200:#b9dcf1;
+--color-brand-500:#1d8fcb;
+--color-brand-600:#0580bd;
+--color-brand-700:#046a9e;
+--color-ink:#16324a;
+--color-muted:#5b6d80;
+--color-line:#dbe6ee;
+--color-surface:#f5f9fc;
+--color-danger:#b4233c;
+--color-success:#0e7a54;
+--color-success-soft:#e4f6ee;
+}
+
+@layer base{
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background-color:var(--color-surface);color:var(--color-ink);font-family:var(--font-sans);-webkit-font-smoothing:antialiased}
+:focus-visible{outline:2px solid var(--color-brand-600);outline-offset:2px}
+body:has(dialog[open]){overflow:hidden}
+}
