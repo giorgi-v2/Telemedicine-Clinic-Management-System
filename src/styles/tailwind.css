@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+/* დიზაინის ფერები და შრიფტი. გამოყენება: bg-primary, text-ink, border-line და ა.შ. */
+@theme {
+  --font-sans: "Noto Sans Georgian", system-ui, sans-serif;
+  --color-primary: #0a7bbf;
+  --color-primary-dark: #086399;
+  --color-ink: #17324d;
+  --color-muted: #6b7f92;
+  --color-hero: #e8f4fd;
+  --color-page: #f4f8fc;
+  --color-line: #e3edf5;
+  --color-danger: #c62f3b;
+}
+
+body {
+  background-color: var(--color-page);
+  color: var(--color-ink);
+}
+
+/* ხილული keyboard focus ყველა ინტერაქტიულ ელემენტზე */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}

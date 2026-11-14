@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 240" width="320" height="240" role="img" aria-label="ექიმის ილუსტრაცია">
+  <rect width="320" height="240" fill="#eaf5fe" />
+  <circle cx="160" cy="165" r="100" fill="#cce8fb" />
+  <rect x="148" y="95" width="24" height="40" rx="10" fill="#cfdde8" />
+  <ellipse cx="160" cy="80" rx="28" ry="34" fill="#cfdde8" />
+  <ellipse cx="160" cy="48" rx="34" ry="17" fill="#17324d" />
+  <path d="M82 240 Q82 150 160 150 Q238 150 238 240 Z" fill="#ffffff" />
+  <line x1="160" y1="150" x2="160" y2="240" stroke="#0a7bbf" stroke-width="2" />
+  <path d="M200 182 v16 M192 190 h16" stroke="#0a7bbf" stroke-width="3" stroke-linecap="round" />
+</svg>
