@@ -116,7 +116,7 @@ export default function PageLayout({
         )}
       </header>
 
-      <main className="mx-auto w-full max-w-6xl px-4 py-6 sm:px-6 lg:py-8">
+      <main className="mx-auto w-full max-w-6xl px-4 pt-6 pb-24 sm:px-6 lg:pt-8">
         {children}
       </main>
     </div>
