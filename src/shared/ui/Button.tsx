@@ -1,19 +1,18 @@
-import type { ButtonHTMLAttributes } from 'react';
+import type { ComponentProps } from "react";
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'outline';
+interface ButtonProps extends ComponentProps<"button"> {
+  variant?: "primary" | "outline";
 }
 
-// კლასები სრულად წერია, რომ Tailwind-მა ისინი ამოიცნოს
 const VARIANTS = {
-  primary: 'bg-primary text-white hover:bg-primary-dark',
-  outline: 'border border-line bg-white text-primary hover:bg-hero',
+  primary: "bg-primary text-white hover:bg-primary-dark",
+  outline: "border border-line bg-white text-primary hover:bg-hero",
 };
 
 export default function Button({
-  variant = 'primary',
-  type = 'button',
-  className = '',
+  variant = "primary",
+  type = "button",
+  className = "",
   ...rest
 }: ButtonProps) {
   return (

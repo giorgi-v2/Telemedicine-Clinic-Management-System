@@ -7,6 +7,7 @@ import DoctorFilters from './DoctorFilters';
 
 interface DoctorDirectoryProps {
   onBook: (doctor: Doctor) => void;
+  onChat: (doctor: Doctor) => void;
 }
 
 interface StatePanelProps {
@@ -46,7 +47,7 @@ function SkeletonCard() {
 // ბარათების ბადე: მობილური — 1 სვეტი, ტაბლეტი (md) — 2, კომპიუტერი (lg) — 3
 const GRID_CLASSES = 'grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3';
 
-export default function DoctorDirectory({ onBook }: DoctorDirectoryProps) {
+export default function DoctorDirectory({ onBook, onChat }: DoctorDirectoryProps) {
   const { doctors, isLoading, error, reload } = useFetchDoctors();
   const [search, setSearch] = useState('');
   const [specialty, setSpecialty] = useState('');
@@ -123,7 +124,7 @@ export default function DoctorDirectory({ onBook }: DoctorDirectoryProps) {
         </p>
         <div className={`mt-3 ${GRID_CLASSES}`}>
           {filteredDoctors.map((doctor) => (
-            <DoctorCard key={doctor.id} doctor={doctor} onBook={onBook} />
+            <DoctorCard key={doctor.id} doctor={doctor} onBook={onBook} onChat={onChat} />
           ))}
         </div>
       </>

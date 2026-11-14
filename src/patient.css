@@ -22,5 +22,5 @@
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background-color:var(--color-surface);color:var(--color-ink);font-family:var(--font-sans);-webkit-font-smoothing:antialiased}
 :focus-visible{outline:2px solid var(--color-brand-600);outline-offset:2px}
-body:has(dialog[open]){overflow:hidden}
+body:has(dialog:modal){overflow:hidden}
 }
