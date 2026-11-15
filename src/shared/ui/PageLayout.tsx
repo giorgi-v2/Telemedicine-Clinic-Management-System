@@ -1,46 +1,40 @@
-
 import { useState, type ReactNode } from 'react';
-
-export type Page = 'doctors' | 'appointments' | 'patient';
+import { NavLink } from 'react-router-dom';
 
 interface PageLayoutProps {
   children: ReactNode;
-  activePage: Page;
-  onNavigate: (page: Page) => void;
+  onNavigate: () => void;
 }
 
-const NAV_LINKS: { label: string; page: Page }[] = [
-  { label: 'ექიმები', page: 'doctors' },
-  { label: 'ჩემი ვიზიტები', page: 'appointments' },
-  { label: 'პაციენტის ბარათი', page: 'patient' },
+const NAV_LINKS = [
+  { label: 'ექიმები', to: '/doctors' },
+  { label: 'ჩემი ვიზიტები', to: '/appointments' },
+  { label: 'პაციენტის ბარათი', to: '/patient' },
 ];
 
 export default function PageLayout({
   children,
-  activePage,
   onNavigate,
 }: PageLayoutProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const navigate = (page: Page) => {
-    onNavigate(page);
+  const handleNavigate = () => {
+    onNavigate();
     setIsMenuOpen(false);
   };
 
-  const navClass = (page: Page) =>
+  const navClass = (isActive: boolean) =>
     `text-sm font-medium transition-colors ${
-      activePage === page
-        ? 'text-primary'
-        : 'text-ink hover:text-primary'
+      isActive ? 'text-primary' : 'text-ink hover:text-primary'
     }`;
 
   return (
     <div className="min-h-screen bg-page">
       <header className="border-b border-line bg-white">
         <div className="flex h-16 items-center justify-between gap-4 px-4 sm:px-6">
-          <button
-            type="button"
-            onClick={() => navigate('doctors')}
+          <NavLink
+            to="/doctors"
+            onClick={handleNavigate}
             className="flex items-center gap-3"
           >
             <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-xl font-bold text-white">
@@ -49,30 +43,27 @@ export default function PageLayout({
             <span className="text-base font-bold text-ink">
               MediCare
             </span>
-          </button>
+          </NavLink>
 
           <nav
             aria-label="მთავარი ნავიგაცია"
             className="hidden flex-1 items-center justify-center gap-8 md:flex"
           >
             {NAV_LINKS.map((link) => (
-              <button
-                key={link.page}
-                type="button"
-                onClick={() => navigate(link.page)}
-                aria-current={
-                  activePage === link.page ? 'page' : undefined
-                }
-                className={navClass(link.page)}
+              <NavLink
+                key={link.to}
+                to={link.to}
+                onClick={handleNavigate}
+                className={({ isActive }) => navClass(isActive)}
               >
                 {link.label}
-              </button>
+              </NavLink>
             ))}
           </nav>
 
-          <button
-            type="button"
-            onClick={() => navigate('patient')}
+          <NavLink
+            to="/patient"
+            onClick={handleNavigate}
             className="hidden items-center gap-2 lg:flex"
           >
             <span className="flex h-8 w-8 items-center justify-center rounded-full bg-hero text-sm font-medium text-primary">
@@ -81,7 +72,7 @@ export default function PageLayout({
             <span className="text-sm font-medium text-ink">
               პაციენტი
             </span>
-          </button>
+          </NavLink>
 
           <button
             type="button"
@@ -100,17 +91,14 @@ export default function PageLayout({
             className="flex flex-col gap-3 border-t border-line px-4 py-3 md:hidden"
           >
             {NAV_LINKS.map((link) => (
-              <button
-                key={link.page}
-                type="button"
-                onClick={() => navigate(link.page)}
-                aria-current={
-                  activePage === link.page ? 'page' : undefined
-                }
-                className={`${navClass(link.page)} text-left`}
+              <NavLink
+                key={link.to}
+                to={link.to}
+                onClick={handleNavigate}
+                className={({ isActive }) => `${navClass(isActive)} text-left`}
               >
                 {link.label}
-              </button>
+              </NavLink>
             ))}
           </nav>
         )}
