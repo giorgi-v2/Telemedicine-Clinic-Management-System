@@ -1,0 +1,93 @@
+.widget {
+  --chat-edge: 16px;
+  --chat-size: 56px;
+  --chat-gap: 12px;
+  --chat-right: max(var(--chat-edge), env(safe-area-inset-right));
+  --chat-bottom: max(var(--chat-edge), env(safe-area-inset-bottom));
+  --chat-top: max(var(--chat-edge), env(safe-area-inset-top));
+
+  position: fixed;
+  z-index: 20;
+  right: var(--chat-right);
+  bottom: var(--chat-bottom);
+  color: var(--color-ink);
+  font-family: 'Noto Sans Georgian Variable', var(--font-sans);
+}
+
+.widget .launcher {
+  display: grid;
+  place-items: center;
+  width: var(--chat-size);
+  height: var(--chat-size);
+  padding: 0;
+  border-radius: 50%;
+  box-shadow: 0 8px 20px rgb(23 50 71 / 20%);
+}
+
+.dialog {
+  position: absolute;
+  inset: auto 0 calc(var(--chat-size) + var(--chat-gap)) auto;
+  margin: 0;
+  width: min(440px, calc(100vw - var(--chat-right) - var(--chat-edge)));
+  max-width: calc(100vw - var(--chat-right) - max(var(--chat-edge), env(safe-area-inset-left)));
+  height: min(580px, calc(100dvh - var(--chat-bottom) - var(--chat-size) - var(--chat-gap) - var(--chat-top)));
+  max-height: none;
+  overflow: auto;
+  border: 1px solid var(--color-line);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 16px 36px rgb(23 50 71 / 13%);
+}
+
+.messages {
+  overscroll-behavior: contain;
+
+  &:focus-visible { outline-offset: -3px; }
+}
+
+.receivedBubble,
+.patientBubble {
+  max-width: 90%;
+  padding: 12px 14px;
+  border-radius: 16px;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.receivedBubble {
+  align-self: flex-start;
+  background: var(--color-page);
+
+  time, span { color: var(--color-muted); }
+}
+
+.patientBubble {
+  align-self: flex-end;
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  height: 48px;
+  padding: 10px 12px;
+  resize: none;
+  border: 1px solid var(--color-line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--color-ink);
+  font-size: 1rem;
+
+  &::placeholder { color: var(--color-muted); }
+  &:focus { border-color: var(--color-primary); }
+  &[aria-invalid='true'] { border-color: var(--color-danger); }
+}
+
+.send:disabled {
+  background: var(--color-line);
+  color: var(--color-muted);
+  cursor: default;
+}

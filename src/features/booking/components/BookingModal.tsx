@@ -7,7 +7,7 @@ import { useBookingForm } from '../hooks/useBookingForm';
 import BookingForm from './BookingForm';
 import BookingSuccess from './BookingSuccess';
 
-import styles from './BookingModal.module.scss';
+import styles from './bookingModal.module.scss';
 
 interface BookingModalProps {
   doctor: Doctor;

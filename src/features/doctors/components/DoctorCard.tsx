@@ -5,11 +5,12 @@ import styles from './DoctorCard.module.scss';
 interface DoctorCardProps {
   doctor: Doctor;
   onBook: (doctor: Doctor) => void;
+  onChat: (doctor: Doctor) => void;
 }
 
 const DEFAULT_PHOTO = `${import.meta.env.BASE_URL}images/doctor.svg`;
 
-export default function DoctorCard({ doctor, onBook }: DoctorCardProps) {
+export default function DoctorCard({ doctor, onBook, onChat }: DoctorCardProps) {
   return (
     <article
       className={`${styles.card} flex flex-col gap-3 rounded-2xl border border-line bg-white p-4`}
@@ -27,6 +28,14 @@ export default function DoctorCard({ doctor, onBook }: DoctorCardProps) {
       </div>
       <Button className="mt-auto w-full" onClick={() => onBook(doctor)}>
         ექიმთან დაჯავშნა
+      </Button>
+      <Button
+        variant="outline"
+        className="w-full"
+        aria-label={`საუბრის გახსნა — ${doctor.fullName}`}
+        onClick={() => onChat(doctor)}
+      >
+        საუბრის გახსნა
       </Button>
     </article>
   );
