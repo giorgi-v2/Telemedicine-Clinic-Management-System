@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
+import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 
-import PageLayout, { type Page } from "./shared/ui/PageLayout";
+import PageLayout from "./shared/ui/PageLayout";
 
 import DoctorDirectory from "./features/doctors/components/DoctorDirectory";
 
@@ -27,10 +28,10 @@ function loadPatientBookings(): Booking[] {
 
 export default function App() {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   useEffect(() => {
     void dispatch(fetchBookings());
   }, [dispatch]);
-  const [page, setPage] = useState<Page>("doctors");
   const [chatDoctor, setChatDoctor] = useState<Doctor | null>(null);
   const [isChatOpen, setIsChatOpen] = useState(false);
 
@@ -73,16 +74,14 @@ export default function App() {
     [dispatch],
   );
 
-  const handleNavigate = (nextPage: Page) => {
+  const handleNavigate = () => {
     setSelectedDoctor(null);
-    setPage(nextPage);
     setBookings(loadPatientBookings());
   };
 
   const handleClose = () => {
-    setSelectedDoctor(null);
-    setPage("appointments");
-    setBookings(loadPatientBookings());
+    handleNavigate();
+    navigate("/appointments");
   };
 
   const getDoctorName = (doctorId: string) =>
@@ -90,61 +89,73 @@ export default function App() {
     `ექიმი (${doctorId})`;
 
   return (
-    <PageLayout
-      activePage={page}
-      onNavigate={handleNavigate}
-    >
-      {page === "doctors" && (
-        <DoctorDirectory onBook={handleBook} onChat={handleChat} />
-      )}
-
-      {page === "appointments" && (
-        <section className="mx-auto max-w-3xl rounded-2xl border border-line bg-white p-6 sm:p-8">
-          <h1 className="text-2xl font-bold text-ink">ჩემი ვიზიტები</h1>
-
-          {bookings.length === 0 ? (
-            <p className="mt-5 text-muted">
-              ჯერ არცერთი ვიზიტი არ გაქვს დაჯავშნილი.
-            </p>
-          ) : (
-            <div className="mt-6 space-y-4">
-              {bookings.map((booking) => (
-                <article
-                  key={booking.id}
-                  className="rounded-xl border border-line p-5"
-                >
-                  <h2 className="font-semibold text-ink">
-                    {getDoctorName(booking.doctorId)}
-                  </h2>
-
-                  <p className="mt-2 text-sm text-muted">
-                    {booking.date} · {booking.time}
-                  </p>
-
-                  <p className="mt-2 text-sm font-semibold text-green-700">
-                    დადასტურებული
-                  </p>
-                </article>
-              ))}
-            </div>
-          )}
-
-          <button
-            type="button"
-            onClick={() => handleNavigate("doctors")}
-            className="mt-7 rounded-lg bg-primary px-6 py-3 font-semibold text-white"
-          >
-            ახალი ვიზიტის დაჯავშნა
-          </button>
-        </section>
-      )}
-
-      {page === "patient" && (
-        <PatientDashboard
-          patientId={patientId}
-          onBrowseDoctors={() => handleNavigate("doctors")}
+    <PageLayout onNavigate={handleNavigate}>
+      <Routes>
+        <Route path="/" element={<Navigate to="/doctors" replace />} />
+        <Route
+          path="/doctors"
+          element={<DoctorDirectory onBook={handleBook} onChat={handleChat} />}
         />
-      )}
+        <Route
+          path="/appointments"
+          element={
+            <section className="mx-auto max-w-3xl rounded-2xl border border-line bg-white p-6 sm:p-8">
+              <h1 className="text-2xl font-bold text-ink">ჩემი ვიზიტები</h1>
+
+              {bookings.length === 0 ? (
+                <p className="mt-5 text-muted">
+                  ჯერ არცერთი ვიზიტი არ გაქვს დაჯავშნილი.
+                </p>
+              ) : (
+                <div className="mt-6 space-y-4">
+                  {bookings.map((booking) => (
+                    <article
+                      key={booking.id}
+                      className="rounded-xl border border-line p-5"
+                    >
+                      <h2 className="font-semibold text-ink">
+                        {getDoctorName(booking.doctorId)}
+                      </h2>
+
+                      <p className="mt-2 text-sm text-muted">
+                        {booking.date} · {booking.time}
+                      </p>
+
+                      <p className="mt-2 text-sm font-semibold text-green-700">
+                        დადასტურებული
+                      </p>
+                    </article>
+                  ))}
+                </div>
+              )}
+
+              <button
+                type="button"
+                onClick={() => {
+                  handleNavigate();
+                  navigate("/doctors");
+                }}
+                className="mt-7 rounded-lg bg-primary px-6 py-3 font-semibold text-white"
+              >
+                ახალი ვიზიტის დაჯავშნა
+              </button>
+            </section>
+          }
+        />
+        <Route
+          path="/patient"
+          element={
+            <PatientDashboard
+              patientId={patientId}
+              onBrowseDoctors={() => {
+                handleNavigate();
+                navigate("/doctors");
+              }}
+            />
+          }
+        />
+        <Route path="*" element={<Navigate to="/doctors" replace />} />
+      </Routes>
 
       {selectedDoctor && (
         <BookingModal
